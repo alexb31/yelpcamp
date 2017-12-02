@@ -28,5 +28,27 @@
 <% }) %>  
     </div>
 
+<script type="text/javascript" src="https://maps.google.com/map..."></script>
+
+<script>
+    $("#checkingAddress").click(checkGeocode);
+
+function checkGeocode(){
+var addr = document.getElementById("location");
+// Get geocoder instance
+var geocoder = new google.maps.Geocoder();
+
+// Geocode the address
+geocoder.geocode({'address': addr.value}, function(results, status){
+if (status === google.maps.GeocoderStatus.OK && results.length > 0) {
+alert('looks good')
+// set it to the correct, formatted address if it's valid
+addr.value = results[0].formatted_address;;
+
+// show an error if it's not
+}else alert("Invalid address");
+});
+};
+</script>
 
 <% include ../partials/footer %>
