@@ -9,19 +9,19 @@ var express = require("express"),
     Campground = require("./models/campground"),
     Comment = require("./models/comment"),
     User = require("./models/user"),
-    seedDb = require("./seeds")
+    seedDb = require("./seeds"),
 
 
 //Requiring Routes    
-var commentRoutes = require("./routes/comments"),
+    commentRoutes = require("./routes/comments"),
     campgroundsRoutes = require("./routes/campgrounds"),
     indexRoutes = require("./routes/index")
 
-var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v11";
-mongoose.connect(url);
+// var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v11";
+// mongoose.connect(url);
 
-// mongoose.connect("mongodb://localhost/yelp_camp_v11");
-//mongoose.connect("mongodb://alex:123Azertyu@ds123796.mlab.com:23796/yelpcamp");
+mongoose.connect("mongodb://localhost/yelp_camp_v11");
+mongoose.connect("mongodb://alex:123Azertyu@ds123796.mlab.com:23796/yelpcamp");
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
