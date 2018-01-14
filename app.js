@@ -20,8 +20,8 @@ var express = require("express"),
 // var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v11";
 // mongoose.connect(url);
 
-mongoose.connect("mongodb://localhost/yelp_camp_v11");
-mongoose.connect("mongodb://alex:123Azertyu@ds123796.mlab.com:23796/yelpcamp");
+mongoose.connect(process.env.DATABASEURL);
+//mongoose.connect("mongodb://alex:123Azertyu@ds123796.mlab.com:23796/yelpcamp");
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
